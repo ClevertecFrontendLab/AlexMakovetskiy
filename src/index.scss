@@ -1,68 +1,42 @@
-*,
-*:before,
-*:after {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-:focus,
-:active {
-	outline: none;
+li {
+    list-style-type: none;
 }
 
-a:focus,
-a:active {
-	outline: none;
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section {
-	display: block;
-}
-
-html,
-body {
-	height: 100%;
-	width: 100%;
-	font-size: 100%;
-	line-height: 1;
-}
-
-input,
-textarea,
-button {
-	font-size: inherit;
+a {
+    text-decoration: none;
+    color: var(--color-text-grey);
 }
 
 button {
-	outline: none;
-	border: none;
-	cursor: pointer;
-	background: none;
+    outline: none;
+    outline-offset: none;
+    border: 1px solid transparent;
+    background: var(--color-background-pure-white);
+    cursor: pointer;
+    user-select: none;
 }
 
-a,
-a:link,
-a:visited,
-a:hover,
-a:active {
-	text-decoration: none;
-	outline: none;
+input, textarea {
+    outline: none;
+    border: solid 1px var(--color-border-pure-white);
 }
 
-ol,
-ul {
-	list-style: none;
+img {
+    cursor: pointer;
+    user-select: none;
+}
+
+h1, h2 {
+    user-select: none;
 }

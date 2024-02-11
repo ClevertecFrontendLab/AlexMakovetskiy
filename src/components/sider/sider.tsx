@@ -4,7 +4,7 @@ import styles from "./sider.module.scss";
 
 export function SiderComponent() {
     return (
-        <Sider>
+        <Sider className={styles.siderWrap}>
             SiderComponent
         </Sider>
     );

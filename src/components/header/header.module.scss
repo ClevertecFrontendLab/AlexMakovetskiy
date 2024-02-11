@@ -1,0 +1,46 @@
+@import "../../globals.scss"; 
+
+.headerWrap {
+    padding: 16px 0;
+    width: 1232px;
+    display: flex;
+    background: $primaryLight;
+
+    .headerContainer {
+        margin-inline: auto;
+        max-width: 1184px;
+        width: 100%;
+
+        &__title {
+            @include bodyRegularFont;
+        }
+
+        .headerContentWrap {
+            display: grid;
+            grid-template-columns: auto 132px;
+
+            &__title {
+                margin: 0;
+                font-size: 3.8rem;
+                line-height: 5rem;
+                font-weight: 700;
+            }
+    
+            .headerContentWrap {
+                display: flex;
+    
+                &__settingsAction {
+                    @include bodyRegularFont;
+                    align-self: start;
+                    padding: 8px 14px;
+                    max-width: min-content;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                }
+    
+            }
+        }
+    }
+}
