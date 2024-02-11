@@ -1,13 +1,17 @@
 import { Layout } from 'antd';
 
+import { SiderComponent, Header, PageContainer } from '@components/index';
+
 import styles from "./main-page.module.scss";
 
 export function MainPage() {
     return (
-        <Layout>
-            <header></header>
-            <main></main>
-            <footer></footer>
+        <Layout className={styles.layoutMain}>
+            <SiderComponent/>
+            <div className={styles.mainWrap}>
+                <Header/>
+                <PageContainer/>
+            </div>
         </Layout>
     );
 }
