@@ -1,1 +1,1 @@
-export { SiderComponent } from "./sider";
+export { SiderElement } from "./sider";

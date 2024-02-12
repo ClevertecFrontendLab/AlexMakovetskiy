@@ -1,22 +1,24 @@
 .headerWrap {
-    padding: 16px 0;
-    width: 1232px;
-    display: flex;
+    padding: 16px 24px;
+    width: 100%;
+    display: flexbox;
     background: var(--color-alice-blue);
 }
 
 .headerContainer {
     margin-inline: auto;
-    max-width: 1184px;
+    max-width: 1330px;
     width: 100%;
 }
 
 .headerContentWrap {
     display: flex;
+    justify-content: space-between;
 }
 
 .headerContentWrap__title {
     margin: 0;
+    max-width: 1054px;
     font-size: 3.8rem;
     line-height: 5rem;
     font-weight: 700;

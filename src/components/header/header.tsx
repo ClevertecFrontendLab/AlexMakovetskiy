@@ -1,5 +1,5 @@
+import { Typography, Button, Layout } from 'antd';
 import { SettingOutlined } from "@ant-design/icons";
-import { Typography, Button } from 'antd';
 import cn from "classnames/dedupe";
 
 import { nbsp } from "../../helpers/common-constants";
@@ -8,10 +8,11 @@ import styles from "./header.module.css";
 import globalStyles from "../../globals.module.css";
 
 const { Title, Text } = Typography;
+const { Header } = Layout;
 
-export function Header() {
+export function HeaderElement() {
     return (
-        <header className={styles.headerWrap}>
+        <Header className={styles.headerWrap}>
             <div className={styles.headerContainer}>
                 <Text className={globalStyles.bodyRegularFont}>Главная</Text>
                 <div className={styles.headerContentWrap}>
@@ -23,6 +24,6 @@ export function Header() {
                     >Настройки</Button>
                 </div>
             </div>
-        </header>
+        </Header>
     );
 }

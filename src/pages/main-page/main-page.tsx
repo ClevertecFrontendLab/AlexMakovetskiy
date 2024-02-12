@@ -1,15 +1,15 @@
 import { Layout } from 'antd';
 
-import { SiderComponent, Header, PageContainer } from '@components/index';
+import { SiderElement, HeaderElement, PageContainer } from '@components/index';
 
 import styles from "./main-page.module.css";
 
 export function MainPage() {
     return (
         <Layout className={styles.layoutMain}>
-            <SiderComponent/>
+            <SiderElement/>
             <div className={styles.mainWrap}>
-                <Header/>
+                <HeaderElement/>
                 <PageContainer/>
             </div>
         </Layout>

@@ -1,4 +1,4 @@
-import { Typography, List, Button } from 'antd';
+import { Typography, List, Button, Layout } from 'antd';
 import { AndroidFilled, AppleFilled, CalendarOutlined, HeartFilled, IdcardOutlined } from '@ant-design/icons';
 import cn from "classnames/dedupe";
 
@@ -10,6 +10,7 @@ import styles from "./page-container.module.css";
 import globalStyles from "../../globals.module.css";
 
 const { Title, Text } = Typography;
+const { Footer } = Layout;
 
 export function PageContainer() {
     const textBoxData: string[] = [
@@ -70,7 +71,7 @@ export function PageContainer() {
                 </TextBox>
                 <div className={styles.actionCardListWrap}>{renderActionCardList()}</div>
             </div>
-            <footer className={styles.footerWrap}>
+            <Footer className={styles.footerWrap}>
                 <Button type="text" className={cn(styles.footerWrap__reviewsAction, globalStyles.bodyRegularHigherFont)}>Смотреть отзывы</Button>
                 <div className={styles.storeBoxWrap}>
                     <Text className={cn(styles.storeBoxWrap__title, globalStyles.bodyRegularHigherFont)}>Скачать на телефон </Text>
@@ -88,7 +89,7 @@ export function PageContainer() {
                         >Apple iOS</Button>
                     </div>
                 </div>
-            </footer>
+            </Footer>
         </main>
     );
 }
