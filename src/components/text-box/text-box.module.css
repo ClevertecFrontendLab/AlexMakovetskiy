@@ -21,3 +21,9 @@
         max-width: 676px;
     }
 }
+
+@media (width <= 500px)  {
+    .textBoxWrap {
+        padding: 16px;
+    }
+}

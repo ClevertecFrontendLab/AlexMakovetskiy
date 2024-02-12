@@ -51,3 +51,18 @@
         gap: 14px;
     }
 }
+
+@media (width <= 490px) {
+    .headerContentWrap__settingsAction {
+        padding: 8px;
+        background: var(--color-white-primary);
+        border: 1px solid var(--color-light-silver);
+        border-radius: 50%;
+        box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.043); 
+    }
+
+    .headerContentWrap__title {
+        font-size: 2rem;
+        line-height: 2.6rem;
+    }
+}

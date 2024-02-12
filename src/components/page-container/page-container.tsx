@@ -25,16 +25,19 @@ export function PageContainer() {
             initialTextLineContent: "Расписать тренировки",
             linkButtonContent: "Тренировки",
             icon: <HeartFilled className={styles.actionCardListWrap__actionCardImage}/>,
+            key: "actionCard0"
         },
         {
             initialTextLineContent: "Назначить календарь",
             linkButtonContent: "Календарь",
             icon: <CalendarOutlined className={styles.actionCardListWrap__actionCardImage}/>,
+            key: "actionCard1"
         },  
         {
             initialTextLineContent: "Заполнить профиль",
             linkButtonContent: "Профиль",
             icon: <IdcardOutlined className={styles.actionCardListWrap__actionCardImage}/>,
+            key: "actionCard2"
         },     
     ]
 
@@ -52,9 +55,9 @@ export function PageContainer() {
                 initialTextLineContent={actionCardData.initialTextLineContent}            
                 linkButtonContent={actionCardData.linkButtonContent} 
                 icon={actionCardData.icon} 
+                key={actionCardData.key}
             />
-        )
-        );
+        ));
     }
 
     return (

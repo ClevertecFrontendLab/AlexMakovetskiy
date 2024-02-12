@@ -40,6 +40,7 @@
 
 .actionCardListWrap {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     gap: 16px;
@@ -54,6 +55,7 @@
     max-width: 1330px;
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -103,4 +105,33 @@
     align-items: center;
     gap: 8px;
     color: var(--color-raisin-black);
+}
+
+@media (width <= 490px) {
+    .pageContainerWrap {
+        padding: 24px 16px 42px;
+        justify-content: flex-start;
+        gap: 24px;
+    }
+
+    .actionCardListWrap {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footerWrap {
+        margin-inline: auto;
+        max-width: 1330px;
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .footerWrap__reviewsAction {
+        align-self: center;
+    }
 }

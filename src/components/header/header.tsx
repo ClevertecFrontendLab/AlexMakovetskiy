@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Typography, Button, Layout } from 'antd';
 import { SettingOutlined } from "@ant-design/icons";
 import cn from "classnames/dedupe";
@@ -11,6 +12,33 @@ const { Title, Text } = Typography;
 const { Header } = Layout;
 
 export function HeaderElement() {
+    const [isMobileView, setIsMobileView] = useState<boolean>(false);
+
+    const mobileDeviceWidth = 500;
+
+    useEffect(() => {
+        if(document.documentElement.clientWidth as number < mobileDeviceWidth) {
+            setIsMobileView(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= mobileDeviceWidth && !isMobileView) {
+                setIsMobileView(true);
+            } else if (screenWidth > mobileDeviceWidth && isMobileView) {
+                setIsMobileView(false);
+            }
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [isMobileView]);
+
     return (
         <Header className={styles.headerWrap}>
             <div className={styles.headerContainer}>
@@ -21,7 +49,7 @@ export function HeaderElement() {
                         type="text"
                         icon={<SettingOutlined />}
                         className={cn(styles.headerContentWrap__settingsAction, globalStyles.bodyRegularFont)}
-                    >Настройки</Button>
+                    >{!isMobileView ? "Настройки" : ""}</Button>
                 </div>
             </div>
         </Header>

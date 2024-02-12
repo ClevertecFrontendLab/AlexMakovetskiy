@@ -8,4 +8,5 @@ export interface IActionCard {
     icon: ReactNode;
     linkButtonContent: string;
     initialTextLineContent: string;
+    key: string;
 }
