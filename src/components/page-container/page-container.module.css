@@ -1,0 +1,106 @@
+.pageContainerWrap {
+    padding: 24px 0 42px;
+    max-height: calc(100% - 150px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pageContentContainer {
+    margin-inline: auto;
+    max-width: 1184px;
+    width: 100%;
+}
+
+.pageContentContainer>div:nth-of-type(1) {
+    margin-bottom: 24px;
+}
+
+.pageContentContainer>div:nth-of-type(2) {
+    margin-bottom: 16px;
+}
+
+.pageContentContainer__firstBoxTitle,
+.pageContentContainer__firstBoxListItem {
+    color: var(--color-dark-imperial-blue);
+}
+
+.pageContentContainer__firstBoxListItem {
+    font-weight: 400;
+}
+
+.pageContentContainer__secondBoxTitle {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    font-weight: 500;
+    color: var(--color-raisin-black);
+}
+
+.actionCardListWrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.actionCardListWrap__actionCardImage {
+    color: var(--color-ultramarine-blue);
+}
+
+.footerWrap {
+    margin-inline: auto;
+    max-width: 1184px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerWrap__reviewsAction {
+    align-self: flex-end;
+    padding: 10px 16px;
+    color: var(--color-ultramarine-blue);
+}
+
+.storeBoxWrap {
+    padding-top: 12px;
+    max-width: 240px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-white-primary);
+    text-align: center;
+    border-radius: 2px;
+}
+
+.storeBoxWrap__title {
+    padding-bottom: 8px;
+    color: var(--color-ultramarine-blue);
+}
+
+.storeBoxWrap__subtitle {
+    padding-bottom: 12px;
+    color: var(--color-philippine-gray);
+}
+
+.linkBoxContainer {
+    padding: 12px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--color-anti-flash-white);
+}
+
+.linkBoxContainer__linkAction {
+    padding: 6px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-raisin-black);
+}

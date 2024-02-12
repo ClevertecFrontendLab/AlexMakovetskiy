@@ -2,7 +2,7 @@ import { Layout } from 'antd';
 
 import { SiderComponent, Header, PageContainer } from '@components/index';
 
-import styles from "./main-page.module.scss";
+import styles from "./main-page.module.css";
 
 export function MainPage() {
     return (

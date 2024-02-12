@@ -1,0 +1,12 @@
+.textBoxWrap {
+    padding: 24px 0;
+    max-width: 752px;
+    width: 100%;
+    background: var(--color-white-primary);
+    border-radius: 2px;
+}
+
+.textBoxContainer {
+    margin-inline: auto;
+    max-width: 704px;
+}
