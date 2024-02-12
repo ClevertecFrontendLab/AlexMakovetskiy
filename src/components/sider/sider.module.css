@@ -41,6 +41,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 24px;
+    border-top: 1px solid var(--color-anti-flash-white);
 }
 
 .siderWrap__collapseAction {

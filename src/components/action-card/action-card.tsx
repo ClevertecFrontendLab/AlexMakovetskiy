@@ -11,7 +11,7 @@ const { Text } = Typography;
 export function ActionCard({icon, initialTextLineContent, linkButtonContent}: IActionCard) {
     return (
         <div className={styles.actionCardWrap}>
-            <Text className={globalStyles.bodyRegularHigherFont}>{initialTextLineContent}</Text>
+            <Text className={cn(styles.actionCardWrap__title, globalStyles.bodyRegularHigherFont)}>{initialTextLineContent}</Text>
             <div className={styles.linkBoxContainer}>
                 <Button 
                     type="text"

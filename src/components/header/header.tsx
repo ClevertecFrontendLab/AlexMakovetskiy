@@ -14,7 +14,7 @@ export function HeaderElement() {
     return (
         <Header className={styles.headerWrap}>
             <div className={styles.headerContainer}>
-                <Text className={globalStyles.bodyRegularFont}>Главная</Text>
+                <Text className={cn(styles.headerContainer__title, globalStyles.bodyRegularFont)}>Главная</Text>
                 <div className={styles.headerContentWrap}>
                     <Title className={styles.headerContentWrap__title}>Приветствуем тебя в{nbsp}CleverFit{nbsp}— приложении, которое поможет тебе добиться своей мечты!</Title>
                     <Button 

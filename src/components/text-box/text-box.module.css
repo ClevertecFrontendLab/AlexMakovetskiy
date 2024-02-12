@@ -10,3 +10,14 @@
     margin-inline: auto;
     max-width: 704px;
 }
+
+@media (width <= 930px)  {
+    .textBoxWrap {
+        padding: 24px;
+        max-width: 722px;
+    }
+
+    .textBoxContainer {
+        max-width: 676px;
+    }
+}
