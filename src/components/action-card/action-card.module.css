@@ -1,0 +1,40 @@
+.actionCardWrap {
+    padding-top: 12px;
+    max-width: 240px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--color-white-primary);
+    text-align: center;
+    border-radius: 2px;
+}
+
+.actionCardWrap__title {
+    padding: 0;
+    text-align: center;
+}
+
+.linkBoxContainer {
+    padding: 12px 0;
+    width: 100%;
+    border-top: 1px solid var(--color-anti-flash-white);
+}
+
+.linkBoxContainer__linkAction {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-ultramarine-blue);
+}
+
+@media (width <= 990px) {
+    .actionCardWrap__title {
+        padding: 0 14px;
+        text-align: center;
+    }
+}

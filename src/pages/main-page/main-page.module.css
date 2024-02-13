@@ -1,0 +1,22 @@
+.layoutMain {
+    margin-inline: auto;
+    max-width: 1440px;
+    display: flex;
+    font-family: var(--font-primary);
+}
+
+.mainWrap {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(256, 256, 256, 0), rgba(255, 253, 253, 0.8)), var(--image-url-main-page);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+@media (width <= 796px) {
+    .mainWrap {
+        height: initial;
+        overflow: hidden;
+    }
+}

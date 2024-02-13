@@ -8,6 +8,7 @@ import { MainPage } from './pages';
 
 import 'normalize.css';
 import './index.css';
+import './globals.module.css';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);

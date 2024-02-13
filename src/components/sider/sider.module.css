@@ -1,0 +1,104 @@
+.siderWrap {
+    padding-top: 30px;
+    position: relative;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    transition: .3s ease-in-out;
+}
+
+.navigationWrap__logo {
+    margin-inline: auto;
+    padding-bottom: 50px;
+    display: block;
+}
+
+.menuWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.menuWrap__logo {
+    color: var(--color-dark-imperial-blue);
+}
+
+.menuWrap__menuItem {
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.siderWrap__logoutAction {
+    padding: 10px 0 10px 16px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    border-top: 1px solid var(--color-anti-flash-white);
+}
+
+.siderWrap__collapseAction {
+    padding: 28px 4px;
+    position: absolute;
+    right: -20px;
+	top: calc(50% - 34px);
+    background: var(--color-white-primary);
+    clip-path: polygon(100% 19%, 100% 79%, 0 100%, 0 0);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.siderWrap__collapseAction__logo {
+    color: var(--color-philippine-gray);
+}
+
+.siderWrap__collapseMobileAction {
+    display: none;
+    padding: 16px 8px;
+    position: absolute;
+    right: -20px;
+    top: 24px;
+    background: var(--color-white-primary);
+    clip-path: polygon(0 1%, 100% 15%, 100% 85%, 0% 100%);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+@media (width <= 490px) {
+    .siderWrap {
+        padding-top: 16px;
+        height: 100vh;
+        position: absolute;
+        left: -106px;
+        transition: .3s ease-in-out;
+        transition: transform 250ms ease-in-out;
+        background: var(--color-white-primary);
+    }
+
+    .navigationWrap__logo {
+        max-width: 18px;
+        max-width: 72px;
+    }
+
+    .menuWrap {
+        gap: 8px;
+    }
+
+    .siderWrap__collapseAction {
+        display: none;
+    }
+
+    .siderWrap__collapseMobileAction {
+        display: block;
+    }
+
+    .siderWrap__logoutAction {
+        padding: 10px 0;
+        justify-content: center;
+    }
+}

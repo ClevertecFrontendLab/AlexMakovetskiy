@@ -1,0 +1,29 @@
+.textBoxWrap {
+    padding: 24px 0;
+    max-width: 752px;
+    width: 100%;
+    background: var(--color-white-primary);
+    border-radius: 2px;
+}
+
+.textBoxContainer {
+    margin-inline: auto;
+    max-width: 704px;
+}
+
+@media (width <= 930px)  {
+    .textBoxWrap {
+        padding: 24px;
+        max-width: 722px;
+    }
+
+    .textBoxContainer {
+        max-width: 676px;
+    }
+}
+
+@media (width <= 500px)  {
+    .textBoxWrap {
+        padding: 16px;
+    }
+}
