@@ -13,11 +13,17 @@ const { Header } = Layout;
 
 export function HeaderElement() {
     const [isMobileView, setIsMobileView] = useState<boolean>(false);
+    const [isTabletView, setIsTabletView] = useState<boolean>(false);
 
+    const tabletDeviceWidth = 900;
     const mobileDeviceWidth = 500;
 
     useEffect(() => {
+        if(document.documentElement.clientWidth as number < tabletDeviceWidth) {
+            setIsTabletView(true);
+        }
         if(document.documentElement.clientWidth as number < mobileDeviceWidth) {
+            setIsTabletView(false);
             setIsMobileView(true);
         }
     }, []);
@@ -25,6 +31,11 @@ export function HeaderElement() {
     useEffect(() => {
         const handleResize = () => {
             const screenWidth = window.innerWidth;
+            if (screenWidth <= tabletDeviceWidth && !isTabletView) {
+                setIsTabletView(true);
+            } else if (screenWidth > tabletDeviceWidth && isTabletView) {
+                setIsTabletView(false);
+            }
             if (screenWidth <= mobileDeviceWidth && !isMobileView) {
                 setIsMobileView(true);
             } else if (screenWidth > mobileDeviceWidth && isMobileView) {
@@ -37,7 +48,14 @@ export function HeaderElement() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [isMobileView]);
+    }, [isMobileView, isTabletView]);
+
+    function getCorrectIcon() {
+        if(isMobileView) {
+            return <SettingOutlined />;
+        }
+        return !isTabletView ? <SettingOutlined /> : <></>;
+    }
 
     return (
         <Header className={styles.headerWrap}>
@@ -47,7 +65,7 @@ export function HeaderElement() {
                     <Title className={styles.headerContentWrap__title}>Приветствуем тебя в{nbsp}CleverFit{nbsp}— приложении, которое поможет тебе добиться своей мечты!</Title>
                     <Button 
                         type="text"
-                        icon={<SettingOutlined />}
+                        icon={getCorrectIcon()}
                         className={cn(styles.headerContentWrap__settingsAction, globalStyles.bodyRegularFont)}
                     >{!isMobileView ? "Настройки" : ""}</Button>
                 </div>
