@@ -1,11 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { HistoryRouter } from "redux-first-history/rr6";
 
 import { history, store } from '@redux/configure-store';
-import { MainPage } from './pages';
+import { router } from './services/router/router';
 
 import 'normalize.css';
 import './index.css';
@@ -17,11 +16,7 @@ const root = createRoot(domNode);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <HistoryRouter history={history}>
-                <Routes>
-                    <Route index path='/' element={<MainPage />} />
-                </Routes>
-            </HistoryRouter>
+            <HistoryRouter history={history}>{router}</HistoryRouter>
         </Provider>
     </React.StrictMode>,
 );
