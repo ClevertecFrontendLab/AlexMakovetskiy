@@ -10,6 +10,7 @@
     --color-dark-imperial-blue: #061178;
     --color-philippine-gray: #8C8C8C;
     --color-raisin-black: #262626;
+    --color-black-primary: #000;
     --font-primary: 'Inter', Tahoma, Verdana, sans-serif;
     --image-url-main-page: url(https://s3-alpha-sig.figma.com/img/ec64/847b/1d3b2bd1dd53a65dace5128315d0bb33?Expires=1708300800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cIfGs5dTezVsHythmn~1fGdIx~FrLU97V2yjJ9wd~IiXh3Wn99MXsjQTfwBbj6~F4BEDvlVlcyaTwnJDcXbkbxAJSeeEZfR5HIUCW3rk8WYv6taaX6BYr4GeP~2oG2OMpuNnTnmIjZay9JV2ilPgDB12HG9H77vR4k-bwKqb4mQjdqh46Ab6aSyJqCz86FpbJnNikKy-Nv8QY5hAQ59veh~Bv-3k8wRcrJYRPf9NrtcNcNBLTKOhYX0OrlnX3SStd0hUBKqYE-SR6GEa~AfD0xF4ctqwlU~WpPgBLlJujjpDHorCIte1~LkIZv80VvsSGBmbSdYJNzdSP20jE2tphw__);
     --image-url-auth-layout: url(/src/assets/authLayout/enterAuth.png);

@@ -85,7 +85,7 @@ export function LoginPage() {
                         >
                             <Checkbox>Запомнить меня</Checkbox>
                         </Form.Item>
-                        <Button type="link">Забыли пароль?</Button>
+                        <Button type="link" onClick={() => navigator(Path.RecoveryPassword)}>Забыли пароль?</Button>
                     </div>
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className={styles.formWrap__submitAction}>Войти</Button>
