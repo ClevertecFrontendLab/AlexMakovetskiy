@@ -1,4 +1,4 @@
-.loginPageWrap {
+.signupPageWrap {
     padding: 64px 0 174px;
     max-width: 540px;
     width: 100%;
@@ -7,14 +7,14 @@
     border-radius: 2px;
 }
 
-.loginPageContainer {
+.signupPageContainer {
     margin-inline: auto;
     max-width: 370px;
     width: 100%;
     display: block;
 }
 
-.loginPageContainer__logo {
+.signupPageContainer__logo {
     margin-inline: auto;
     padding-bottom: 48px;
 }
@@ -39,12 +39,12 @@
     color: var(--color-ultramarine-blue)
 }
 
-.formWrap {
+.signupPageContainer form {
     margin-bottom: 16px;
 }
 
 .emailInputWrap {
-    margin-bottom: 16px;
+    margin-bottom: 32px;
     width: 100%;
 }
 
@@ -69,13 +69,13 @@
 }
 
 .formWrap__passwordinput {
-    margin-bottom: 24px;
+    margin-bottom: 2px;
 }
 
-.rememberMeWrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+.passwordDescription {
+    margin-bottom: 28px;
+    color: var(--color-philippine-gray);
+    font-size: 1.2rem;
 }
 
 .formWrap__submitAction {
