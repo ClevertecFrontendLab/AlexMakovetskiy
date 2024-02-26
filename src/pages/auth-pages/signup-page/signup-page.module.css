@@ -48,33 +48,25 @@
     width: 100%;
 }
 
-.emailInputWrap__formItemContainer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.emailInputWrap__emailDescription {
-    padding: 4px 12px;
-    min-width: 74px;
-    font-size: 1.4rem;
-    background: var(--color-lotion);
-    border: 1px solid var(--color-light-silver);
-    border-right: 1px solid transparent;
-}
-
 .emailInputWrap__emailInput {
     min-width: 296px;
     width: 100%;
+}
+
+.emailInputWrap__emailAddon {
+    color: var(--color-raisin-black);
 }
 
 .formWrap__passwordinput {
     margin-bottom: 2px;
 }
 
+.fisrtPasswordWrap {
+    padding-bottom: 28px;
+    display: block;
+}
+
 .passwordDescription {
-    margin-bottom: 28px;
-    color: var(--color-philippine-gray);
     font-size: 1.2rem;
 }
 
@@ -98,4 +90,22 @@
     gap: 10px;
     font-size: 1.6rem;
     color: var(--color-raisin-black);
+}
+
+.confirmingPasswordStatusWrap {
+    margin-bottom: 32px;
+}
+
+.confirmingPasswordStatusWrap__title_visible,
+.confirmingPasswordStatusWrap__title_hidden {
+    font-size: 1.2rem;
+}
+
+.confirmingPasswordStatusWrap__title_visible {
+    color: var(--color-orange-red);
+}
+
+.confirmingPasswordStatusWrap__title_hidden {
+    color: transparent;
+    user-select: none;
 }

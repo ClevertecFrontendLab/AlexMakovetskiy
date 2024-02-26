@@ -1,6 +1,5 @@
 import VerificationInput from "react-verification-input";
-
-import suggested from "../../assets/RecoveryPassword/suggested.svg"
+import { ExclamationCircleFilled } from "@ant-design/icons";
 
 import styles from "./recovery-password.module.css";
 
@@ -10,7 +9,9 @@ export function RecoveryPassword() {
     return (
         <div className={styles.recoveryPasswordWrap}>
             <div className={styles.recoveryPasswordConteiner}>
-                <img src={suggested} alt="suggested" className={styles.recoveryPasswordConteiner__suggestedLogo}/>
+                <div className={styles.logoWrap}>
+                    <ExclamationCircleFilled className={styles.logoWrap__logo}/>
+                </div>
                 <h4 className={styles.recoveryPasswordConteiner__title}>Введите код </h4>
                 <h4 className={styles.recoveryPasswordConteiner__title}>для восстановления аккауанта</h4>
                 <p className={styles.recoveryPasswordConteiner__subtitle}>

@@ -1,0 +1,1 @@
+export { ResultErrorPage } from "./result-error";

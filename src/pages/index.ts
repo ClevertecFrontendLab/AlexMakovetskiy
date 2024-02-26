@@ -1,4 +1,4 @@
 export { MainPage } from './main-page';
-export { LoginPage } from './login-page';
-export { SignupPage } from "./signup-page";
-export { RecoveryPassword } from "./recovery-password";
+
+export { LoginPage, SignupPage, RecoveryPassword } from "./auth-pages";
+export { SuccessResultPage, UserExistErrorPage, ResultErrorPage } from "./result-pages";

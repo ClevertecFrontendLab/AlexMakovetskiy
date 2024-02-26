@@ -1,0 +1,1 @@
+export { SuccessResultPage } from "./success-result-page";

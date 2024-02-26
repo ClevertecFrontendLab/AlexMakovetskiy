@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input, Form, Checkbox, Button } from "antd";
+import { GooglePlusOutlined } from "@ant-design/icons";
 
-import { LoginFieldType } from "../../types/pages/auth";
-import { Path } from "../../services/router/routes";
+import { LoginFieldType } from "../../../types/pages/auth";
+import { Path } from "../../../services/router/routes";
 
-import logoClever from "../../assets/authPage/logoCleverFIT.svg";
-import googleIcon from "../../assets/authPage/googleIcon.svg";
+import logoClever from "../../../assets/authPage/logoCleverFIT.svg";
 
 import styles from "./login-page.module.css";
 
@@ -92,7 +92,7 @@ export function LoginPage() {
                     </Form.Item>
                 </Form>
                 <Button className={styles.loginPageContainer__oauthAction}>
-                    <img src={googleIcon} alt="google logo" />
+                    <GooglePlusOutlined />
                     Войти через Google
                 </Button>
             </div>
