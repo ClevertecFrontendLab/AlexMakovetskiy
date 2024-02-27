@@ -1,5 +1,6 @@
 .siderWrap {
     padding-top: 30px;
+    background: var(--color-white-primary);
     position: relative;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     transition: .3s ease-in-out;
@@ -49,9 +50,12 @@
     position: absolute;
     right: -20px;
 	top: calc(50% - 34px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: var(--color-white-primary);
     clip-path: polygon(100% 19%, 100% 79%, 0 100%, 0 0);
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 8px 2px 8px 0 rgba(0, 0, 0, 0.15); 
 }
 
 .siderWrap__collapseAction__logo {
@@ -64,9 +68,10 @@
     position: absolute;
     right: -20px;
     top: 24px;
+
     background: var(--color-white-primary);
     clip-path: polygon(0 1%, 100% 15%, 100% 85%, 0% 100%);
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 8px 2px 8px 0 rgba(0, 0, 0, 0.15); 
 }
 
 @media (width <= 490px) {
@@ -75,9 +80,11 @@
         height: 100vh;
         position: absolute;
         left: -106px;
+        display: block;
         transition: .3s ease-in-out;
         transition: transform 250ms ease-in-out;
         background: var(--color-white-primary);
+        z-index: 20;
     }
 
     .navigationWrap__logo {
@@ -94,7 +101,9 @@
     }
 
     .siderWrap__collapseMobileAction {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .siderWrap__logoutAction {

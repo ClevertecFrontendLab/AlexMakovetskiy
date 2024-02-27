@@ -8,7 +8,7 @@ import { nbsp } from "../../helpers/common-constants";
 import styles from "./header.module.css";
 import globalStyles from "../../globals.module.css";
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 const { Header } = Layout;
 
 export function HeaderElement() {
@@ -58,11 +58,11 @@ export function HeaderElement() {
     }
 
     return (
-        <Header className={styles.headerWrap}>
+        <Header className={styles.headerWrap} style={{ height: "initial" }}>
             <div className={styles.headerContainer}>
                 <Text className={cn(styles.headerContainer__title, globalStyles.bodyRegularFont)}>Главная</Text>
                 <div className={styles.headerContentWrap}>
-                    <Title className={styles.headerContentWrap__title}>Приветствуем тебя в{nbsp}CleverFit{nbsp}— приложении, которое поможет тебе добиться своей мечты!</Title>
+                    <h1 className={styles.headerContentWrap__title}>Приветствуем тебя в{nbsp}CleverFit{nbsp}— приложении, которое поможет тебе добиться своей мечты!</h1>
                     <Button 
                         type="text"
                         icon={getCorrectIcon()}

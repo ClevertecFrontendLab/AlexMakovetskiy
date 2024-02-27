@@ -1,9 +1,17 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Input, Form, Checkbox, Button } from "antd";
 import { GooglePlusOutlined } from "@ant-design/icons";
+import { AxiosResponse } from "axios";
 
+import { useAppDispatch } from "@hooks/typed-react-redux-hooks";
+import { history } from "@redux/configure-store";
+
+import { AccessData, LoginRequestData } from "../../../types/api/api-types";
 import { LoginFieldType } from "../../../types/pages/auth";
+import { antiFlashWhiteSolidBorder, raisinBlackColor, ultramarineBlueColor, ultramarineBlueSolidBorder } from "../../../helpers/common-constants";
+import { loginUser } from "../../../services/api/login";
+import { setToggleLoadingState } from "@redux/toggle-loading/toggle-loading-slice";
+import { emailRegex, passwordRegex } from "../../../helpers/auth-constants";
 import { Path } from "../../../services/router/routes";
 
 import logoClever from "../../../assets/authPage/logoCleverFIT.svg";
@@ -12,26 +20,50 @@ import styles from "./login-page.module.css";
 
 export function LoginPage() {
     const [isSignupButtonHovered, setIsSignupButtonHovered] = useState<boolean>(false);
-    const navigator = useNavigate();
+    const dispatch = useAppDispatch();
+
+    const [ form ] = Form.useForm();
     
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
-    };
-    
-    const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
+    useEffect(() => {
+        const accessToken = window.localStorage.getItem("accessToken");
+        if(accessToken) {
+            history.push(Path.MainPage);
+        }
+    }, []);
+
+    const onFinish = async (values: LoginFieldType) => {
+        const loginData: LoginRequestData = {
+            email: values.email,
+            password: values.password
+        }
+
+        dispatch(setToggleLoadingState(true));
+        await loginUser(loginData)
+            .then(async (response: AxiosResponse) => {
+                dispatch(setToggleLoadingState(false));
+                if(!values.remember) {
+                    await window.localStorage.setItem("accessToken", "");
+                }
+                const { accessToken }: AccessData = response.data;
+                await window.localStorage.setItem("accessToken", accessToken);
+                history.push(Path.MainPage);
+            })
+            .catch(() => {
+                dispatch(setToggleLoadingState(false));
+                return history.push(Path.LoginErrorResult);
+            })
     };
 
     function getSwitchActionTextColor(isSignupButton: boolean): string {
         return isSignupButton ?
-            !isSignupButtonHovered ? "#262626" : "#2F54EB"
-            : isSignupButtonHovered ?  "#262626" : "#2F54EB";
+            !isSignupButtonHovered ? raisinBlackColor : ultramarineBlueColor
+            : isSignupButtonHovered ?  raisinBlackColor : ultramarineBlueColor;
     }
 
     function getSwitchActionBorderColor(isSignupButton: boolean): string {
         return isSignupButton ?
-            !isSignupButtonHovered ? "1px solid #F0F0F0" : "2px solid #2F54EB"
-            : isSignupButtonHovered ?  "1px solid #F0F0F0" : "2px solid #2F54EB";
+            !isSignupButtonHovered ? antiFlashWhiteSolidBorder : ultramarineBlueSolidBorder
+            : isSignupButtonHovered ?  antiFlashWhiteSolidBorder : ultramarineBlueSolidBorder;
     }
     
     return (
@@ -48,19 +80,27 @@ export function LoginPage() {
                         style={{color: getSwitchActionTextColor(true), borderBottom: getSwitchActionBorderColor(true)}}
                         onMouseEnter={() => setIsSignupButtonHovered(true)}
                         onMouseLeave={() => setIsSignupButtonHovered(false)}
-                        onClick={() => navigator(Path.Signup)}
+                        onClick={() => history.push(Path.Signup)}
                     >Регистрация</button>
                 </div>
 
                 <Form
                     initialValues={{ remember: true }}
                     onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
                     autoComplete="off"
                     className={styles.formWrap}
+                    form={form}
                 >
                     <div className={styles.emailInputWrap}>
-                        <Form.Item<LoginFieldType> name="username">
+                        <Form.Item<LoginFieldType> 
+                            name="email"
+                            rules={[
+                                {
+                                    required: true,
+                                    pattern: emailRegex,
+                                    message: "",
+                                }
+                            ]}>
                             <div className={styles.emailInputWrap__formItemContainer}>
                                 <div className={styles.emailInputWrap__emailDescription}>e-mail:</div>
                                 <Input 
@@ -72,7 +112,12 @@ export function LoginPage() {
                     </div>
                     <Form.Item<LoginFieldType>
                         name="password"
-                        >
+                        rules={[{
+                                required: true,
+                                pattern: passwordRegex,
+                                message: '',
+                            }]
+                        }>
                         <Input.Password
                             placeholder="Пароль"
                             className={styles.formWrap__passwordinput}
@@ -85,7 +130,7 @@ export function LoginPage() {
                         >
                             <Checkbox>Запомнить меня</Checkbox>
                         </Form.Item>
-                        <Button type="link" onClick={() => navigator(Path.RecoveryPassword)}>Забыли пароль?</Button>
+                        <Button type="link" onClick={() => history.push(Path.RecoveryPassword)}>Забыли пароль?</Button>
                     </div>
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className={styles.formWrap__submitAction}>Войти</Button>

@@ -5,6 +5,7 @@ import {
     LoginPage, 
     MainPage, 
     RecoveryPassword, 
+    ResultErrorLogin, 
     ResultErrorPage, 
     SignupPage, 
     SuccessResultPage, 
@@ -21,6 +22,7 @@ export const router = (
             <Route path={Path.SuccessResult} element={<SuccessResultPage />} />
             <Route path={Path.UserExistError} element={<UserExistErrorPage />} />
             <Route path={Path.ErrorResult} element={<ResultErrorPage />} />
+            <Route path={Path.LoginErrorResult} element={<ResultErrorLogin />} />
         </Route>
         <Route element={<MainLayout />}>
             <Route path={Path.MainPage} element={<MainPage />} />

@@ -1,4 +1,4 @@
-import { Typography, List, Button, Layout } from 'antd';
+import { Typography, Button, Layout } from 'antd';
 import { AndroidFilled, AppleFilled, CalendarOutlined, HeartFilled, IdcardOutlined } from '@ant-design/icons';
 import cn from "classnames/dedupe";
 
@@ -13,13 +13,6 @@ const { Title, Text } = Typography;
 const { Footer } = Layout;
 
 export function PageContainer() {
-    const textBoxData: string[] = [
-        `— планировать свои тренировки на${nbsp}календаре, выбирая тип и${nbsp}уровень нагрузки;`,
-        `— отслеживать свои достижения в${nbsp}разделе статистики, сравнивая свои результаты с${nbsp}нормами и${nbsp}рекордами;`,
-        `— создавать свой профиль, где ты${nbsp}можешь загружать свои фото, видео и${nbsp}отзывы о${nbsp}тренировках;`,
-        `— выполнять расписанные тренировки для разных частей тела, следуя подробным инструкциям и${nbsp}советам профессиональных тренеров.`,
-    ];
-
     const actionCardListData: IActionCard[] = [
         {
             initialTextLineContent: "Расписать тренировки",
@@ -41,14 +34,6 @@ export function PageContainer() {
         },     
     ]
 
-    function renderListItems(item: string) {
-        return (
-            <List.Item>
-                <List.Item.Meta title={<span className={cn(styles.pageContentContainer__firstBoxListItem, globalStyles.bodyRegularHigherFont)}>{item}</span>}/>
-            </List.Item>
-        )
-    }
-
     function renderActionCardList() {
         return actionCardListData.map((actionCardData) => (
             <ActionCard 
@@ -64,8 +49,13 @@ export function PageContainer() {
         <main className={styles.pageContainerWrap}>
             <div className={styles.pageContentContainer}>
                 <TextBox>
-                    <Text className={cn(styles.pageContentContainer__firstBoxTitle, globalStyles.bodyRegularHigherFont)}>С CleverFit ты сможешь:</Text>
-                    <List itemLayout="vertical" dataSource={textBoxData} renderItem={renderListItems} />
+                    <Text className={cn(styles.pageContentContainer__firstBoxTitle, globalStyles.bodyRegularHigherFont)}>С CleverFit ты сможешь:<br/></Text>
+                    <Text className={cn(styles.pageContentContainer__firstBoxListItem, globalStyles.bodyRegularHigherFont)}>
+                        — планировать свои тренировки на{nbsp}календаре, выбирая тип и{nbsp}уровень нагрузки;<br/>
+                        — отслеживать свои достижения в{nbsp}разделе статистики, сравнивая свои результаты с{nbsp}нормами и{nbsp}рекордами;<br/>
+                        — создавать свой профиль, где ты{nbsp}можешь загружать свои фото, видео и{nbsp}отзывы о{nbsp}тренировках;<br/>
+                        — выполнять расписанные тренировки для разных частей тела, следуя подробным инструкциям и{nbsp}советам профессиональных тренеров.
+                    </Text>
                 </TextBox>
                 <TextBox>
                     <Title level={4} className={cn(styles.pageContentContainer__secondBoxTitle, globalStyles.bodyRegularHigherFont)}>
@@ -74,7 +64,7 @@ export function PageContainer() {
                 </TextBox>
                 <div className={styles.actionCardListWrap}>{renderActionCardList()}</div>
             </div>
-            <Footer className={styles.footerWrap}>
+            <Footer className={styles.footerWrap} style={{background: "none", padding: 0}}>
                 <Button type="text" className={cn(styles.footerWrap__reviewsAction, globalStyles.bodyRegularHigherFont)}>Смотреть отзывы</Button>
                 <div className={styles.storeBoxWrap}>
                     <Text className={cn(styles.storeBoxWrap__title, globalStyles.bodyRegularHigherFont)}>Скачать на телефон </Text>

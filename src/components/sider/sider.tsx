@@ -4,7 +4,11 @@ import MenuItem from "antd/lib/menu/MenuItem";
 import { CalendarOutlined, HeartFilled, IdcardOutlined, MenuFoldOutlined, TrophyFilled } from "@ant-design/icons";
 import cn from "classnames/dedupe";
 
+import { history } from "@redux/configure-store";
+
 import { IMenuItemList } from "../../types/components/sider";
+import { whitePrimaryColor } from "../../helpers/common-constants";
+import { Path } from "../../services/router/routes";
 
 import logo from "../../assets/sider/logo.svg";
 import logoCollapsed from "../../assets/sider/logo-collapsed.svg";
@@ -67,6 +71,11 @@ export function SiderElement() {
         };
     }, [isMobileView]);
 
+    function handleLogout() {
+        window.localStorage.setItem("accessToken", "");
+        return history.push(Path.Login);
+    }
+
     function getSiderWidth(): number {
         return isMobileView ? 
         106 : (isCollapsedSidebar ? 64 : 208);
@@ -105,17 +114,19 @@ export function SiderElement() {
             </nav>
             <Button 
                 className={styles.siderWrap__collapseAction} 
+                style={{borderColor: whitePrimaryColor}}
                 icon={<MenuFoldOutlined className={styles.siderWrap__collapseAction__logo}/>} 
                 data-test-id='sider-switch'
                 onClick={() => setIsCollapsedSidebar(!isCollapsedSidebar)}
             />
             <Button 
                 className={styles.siderWrap__collapseMobileAction} 
+                style={{borderColor: whitePrimaryColor}}
                 icon={<MenuFoldOutlined className={styles.siderWrap__collapseAction__logo}/>} 
                 onClick={() => setIsCollapsedSidebar(!isCollapsedSidebar)}
                 data-test-id='sider-switch-mobile'
             />
-            <Button className={cn(styles.siderWrap__logoutAction, globalStyles.bodyRegularFont)}>
+            <Button className={cn(styles.siderWrap__logoutAction, globalStyles.bodyRegularFont)} onClick={handleLogout}>
                 { !isMobileView && <img src={logout} alt="logout" /> }
                 { !isCollapsedSidebar && "Выход" }
             </Button>

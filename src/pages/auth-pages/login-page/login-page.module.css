@@ -17,6 +17,7 @@
 .loginPageContainer__logo {
     margin-inline: auto;
     padding-bottom: 48px;
+    display: block;
 }
 
 .switchWrap {

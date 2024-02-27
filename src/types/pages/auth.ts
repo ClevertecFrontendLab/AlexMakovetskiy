@@ -1,15 +1,15 @@
 import { RuleObject } from "antd/lib/form";
 
 export interface LoginFieldType {
-    username?: string;
-    password?: string;
-    remember?: string;
+    email: string;
+    password: string;
+    remember: string;
 }
 
 export interface SignupFieldData {
-    email?: string;
-    password?: string;
-    confirmPassword?: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
 }
 
 export interface IConfirmPasswordValidatorValue {

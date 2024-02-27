@@ -8,4 +8,5 @@ export enum Path {
     SuccessResult = "/result/success",
     UserExistError = "/result/error-user-exist",
     ErrorResult = "/result/error",
+    LoginErrorResult = "/result/error-login",
 }

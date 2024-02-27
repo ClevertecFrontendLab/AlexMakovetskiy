@@ -107,6 +107,18 @@
     color: var(--color-raisin-black);
 }
 
+.listItemContentWrap h4,
+.ant-list-vertical,
+.ant-list-item-meta-title {
+    margin: 0;
+}
+
+@media (width <= 850px) {
+    .footerWrap {
+        margin-right: 24px;
+    }
+}
+
 @media (width <= 490px) {
     .pageContainerWrap {
         padding: 24px 16px 42px;

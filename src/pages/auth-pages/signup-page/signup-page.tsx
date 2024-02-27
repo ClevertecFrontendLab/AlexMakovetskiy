@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Input, Form, Button } from "antd";
 import { GooglePlusOutlined } from "@ant-design/icons";
 
 import { useAppDispatch, useAppSelector } from "@hooks/typed-react-redux-hooks";
+import { history } from "@redux/configure-store";
 
+import { SignupRequestData } from "../../../types/api/api-types";
 import { SignupFieldData, TConfirmPasswordValidator } from "../../../types/pages/auth";
 import { IUserDataState } from "../../../types/redux/store-types";
 import { passwordRegex, emailRegex } from "../../../helpers/auth-constants";
 import { signupUser } from "../../../services/api/signup";
 import { setToggleLoadingState } from "@redux/toggle-loading/toggle-loading-slice";
 import userDataSelector from "@redux/user-data/user-data-selector";
-import { setUserDataState } from "@redux/user-data/user-data-slice";
+import { setUserDataState, setInitialUserDataState } from "@redux/user-data/user-data-slice";
 import { Path } from "../../../services/router/routes";
 import { 
     antiFlashWhiteSolidBorder, 
@@ -26,7 +27,6 @@ import styles from "./signup-page.module.css";
 
 export function SignupPage() {
     const [isLoginButtonHovered, setIsLoginButtonHovered] = useState<boolean>(false);
-    const navigator = useNavigate();
     const dispatch = useAppDispatch();
     const userData = useAppSelector(userDataSelector);
     const prevPage = useAppSelector((state) => state.router.previousLocations);
@@ -41,17 +41,21 @@ export function SignupPage() {
     }, []);
 
     const onFinish = async (values: SignupFieldData) => {
+        const signupData: SignupRequestData = {
+            email: values.email,
+            password: values.password
+        }
         dispatch(setToggleLoadingState(true));
-        signupUser(values)
+        signupUser(signupData)
             .then((async () => {
-            await dispatch(setToggleLoadingState(false));
-                console.log(1);
-                return navigator(Path.SuccessResult);
+                await dispatch(setToggleLoadingState(false));
+                await dispatch(setInitialUserDataState());
+                return history.push(Path.SuccessResult);
             }))
             .catch(async (error) => {
                 await dispatch(setToggleLoadingState(false));
                 if(error.response.status === 409) {
-                    return navigator(Path.UserExistError)
+                    return history.push(Path.UserExistError)
                 }
                 else {
                     const userData: IUserDataState = {
@@ -60,7 +64,7 @@ export function SignupPage() {
                         confirmPassword: values.confirmPassword ?? ""
                     }
                     await dispatch(setUserDataState(userData))
-                    return navigator(Path.ErrorResult);
+                    return history.push(Path.ErrorResult);
                 }
             });
     };
@@ -96,7 +100,7 @@ export function SignupPage() {
                         style={{color: getSwitchActionTextColor(true), borderBottom: getSwitchActionBorderColor(true)}}
                         onMouseEnter={() => setIsLoginButtonHovered(true)}
                         onMouseLeave={() => setIsLoginButtonHovered(false)}
-                        onClick={() => navigator(Path.Login)}
+                        onClick={() => history.push(Path.Login)}
                     >Вход</button>
                     <button
                         className={styles.switchWrap__signupPageAction}
